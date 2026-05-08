@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "nombre": "Camiseta NBA Chicago Bulls 23 Michael Jordan",
+    "precio": 20000,
+    "precioAnterior": 25000,
+    "oferta": true,
+    "imagen": "imagenes/basquet1.jpg",
+    "categoria": "basquetbol",
+    "descripcion": "Camiseta deportiva de alta calidad NBA Chicago Bulls 23 Michael Jordan",
+    "stock": 10,
+    "rating": 5
+  },
+  {
+  "id": 2,
+  "nombre": "Camiseta NBA Celtics de Boston 7 Brown",
+  "precio": 15000,
+  "precioAnterior": 20000,
+  "oferta": true,
+  "imagen": "imagenes/basquet2.jpg",
+  "categoria": "basquetbol",
+  "descripcion": "...",
+  "stock": 10,
+  "rating": 5
+},
+
+{
+  "id": 3,
+  "nombre": "Polerón Chicago Bulls",
+  "precio": 25000,
+  "imagen": "imagenes/poleron1.jpg",
+  "categoria": "polerones",
+  "stock": 8,
+  "rating": 5
+},
+{
+  "id": 4,
+  "nombre": "Gorra New Era NBA Chicago Bulls",
+  "precio": 12000,
+  "imagen": "imagenes/gorra1.jpg",
+  "categoria": "gorras",
+  "stock": 15,
+  "rating": 4
+}
+]

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .detalle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  align-items: center;
+}
+
+    .detalle img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .precio {
+      color: green;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .btn-comprar {
+      background: #00a650;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .volver {
+      color: #3483fa;
+      cursor: pointer;
+    }
+
+    .detalle {
+  color: white;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+  </style>
+</head>
+
+<body>
+
+<div class="detalle" id="detalle"></div>
+
+<script>
+let productoActual = null;
+let cantidad = 1;
+let stockData = JSON.parse(localStorage.getItem("stock")) || {};
+
+// ⭐ estrellas
+function generarEstrellas(rating) {
+  let estrellas = "";
+  for (let i = 1; i <= 5; i++) {
+    estrellas += i <= rating ? "⭐" : "☆";
+  }
+  return estrellas;
+}
+
+// 🔥 cargar producto
+fetch("productos.json")
+  .then(res => res.json())
+  .then(productos => {
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+
+    productoActual = productos.find(p => p.id === id);
+
+    if (!productoActual) {
+      document.getElementById("detalle").innerHTML = "<h2>Producto no encontrado</h2>";
+      return;
+    }
+
+    mostrarProducto();
+  });
+
+// 🧠 render producto
+function mostrarProducto() {
+    const stock = stockData[productoActual.id] ?? productoActual.stock ?? 0;
+    
+    document.getElementById("detalle").innerHTML = `
+  
+  <div>
+    <img src="${productoActual.imagen}">
+  </div>
+
+  <div>
+    <span class="volver" onclick="volver()">⬅ Volver</span>
+
+    ${productoActual.oferta ? '<div class="badge-detalle">🔥 OFERTA</div>' : ''}
+
+    <h1>${productoActual.nombre}</h1>
+
+    <div class="rating">
+      ${generarEstrellas(productoActual.rating || 4)}
+    </div>
+
+    <p>${productoActual.descripcion || "Sin descripción disponible"}</p>
+
+    <div class="precio">
+      $${productoActual.precio.toLocaleString("es-CL")}
+    </div>
+
+    <div style="margin-top:10px; font-size:14px; color:#ccc;">
+      <p>📦 Stock: <strong>${stock}</strong></p>
+      <p>🏷️ Categoría: <strong>${productoActual.categoria || "General"}</strong></p>
+    </div>
+
+    ${
+      stock <= 5 && stock > 0
+        ? `<p style="color:orange;">⚠️ Quedan pocas unidades</p>`
+        : ""
+    }
+
+    ${
+      stock === 0
+        ? `<p style="color:red;">❌ Sin stock</p>`
+        : ""
+    }
+
+    <!-- 🔢 SELECTOR CANTIDAD -->
+    <div style="display:flex; align-items:center; gap:10px; margin:15px 0;">
+      <button onclick="cambiarCantidad(-1)">➖</button>
+      <span id="cantidad">${cantidad}</span>
+      <button onclick="cambiarCantidad(1)">➕</button>
+    </div>
+
+    <!-- 🛒 BOTÓN -->
+    <button 
+      class="btn-comprar" 
+      onclick="agregarAlCarrito()"
+      ${stock === 0 ? "disabled" : ""}
+      style="${stock === 0 ? "opacity:0.5; cursor:not-allowed;" : ""}"
+    >
+      🛒 ${stock === 0 ? "Sin stock" : "Agregar al carrito"}
+    </button>
+
+  </div>
+`;
+}
+
+// 🔙 volver
+function volver() {
+  window.location.href = "index.html";
+}
+function agregarStock(cantidadExtra) {
+  let stockData = JSON.parse(localStorage.getItem("stock")) || {};
+
+  let stockActual = stockData[productoActual.id] ?? productoActual.stock ?? 0;
+
+  stockData[productoActual.id] = stockActual + cantidadExtra;
+
+  localStorage.setItem("stock", JSON.stringify(stockData));
+
+  alert("Stock actualizado ✅");
+  location.reload();
+}
+function agregarAlCarrito() {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  let stockActual = stockData[productoActual.id] ?? productoActual.stock;
+
+  if (stockActual <= 0) {
+    alert("❌ Sin stock disponible");
+    return;
+  }
+
+  // 🔥 restar stock
+  stockData[productoActual.id] = stockActual - cantidad;
+  localStorage.setItem("stock", JSON.stringify(stockData));
+
+  // 🛒 agregar
+  let existente = carrito.find(p => p.nombre === productoActual.nombre);
+
+  if (existente) {
+    existente.cantidad += cantidad;
+  } else {
+    carrito.push({
+      nombre: productoActual.nombre,
+      precio: productoActual.precio,
+      imagen: productoActual.imagen,
+      cantidad: cantidad
+    });
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  alert("Producto agregado 🛒");
+  location.reload();
+}
+function resetStock() {
+  localStorage.removeItem("stock");
+  location.reload();
+}
+function cambiarCantidad(valor) {
+  const stock = stockData[productoActual.id] ?? productoActual.stock ?? 0;
+
+  cantidad += valor;
+
+  if (cantidad < 1) cantidad = 1;
+  if (cantidad > stock) cantidad = stock;
+
+  document.getElementById("cantidad").innerText = cantidad;
+}
+</script>
+
+</body>
+</html>

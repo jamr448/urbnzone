@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>URBZONE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="topbar">
+<div class="logo-banner" onclick="clickLogo()">
+  <img src="imagenes/logo.png" alt="URBNZONE">
+</div>
+ <div class="contenedor-busqueda">
+
+  <input type="text" placeholder="Buscar productos..." class="buscador" onkeyup="buscarProducto()">
+
+  <button class="btn-buscar" onclick="activarBusqueda()">🔍</button>
+
+  <div id="resultados-busqueda" class="dropdown-busqueda"></div>
+
+</div>
+
+  <div class="acciones-header">
+
+    <!-- ❤️ FAVORITOS -->
+    <div class="icono-header" onclick="mostrarFavoritos()">
+  ❤️ <span id="contador-fav">0</span>
+</div>
+
+    <!-- 🛒 CARRITO -->
+    <div class="icono-header carrito-header" onclick="toggleCarrito()">
+  
+  <div class="icono-carrito">
+    🛒 
+    <span id="contador" class="badge-carrito">0</span>
+  </div>
+
+  <span id="total-header">$0</span>
+
+</div>
+
+  </div>
+</header>
+
+<nav class="categorias">
+  <button onclick="mostrarInicio(this)" class="activo">🏠 Inicio</button>
+  <button onclick="filtrarCategoria('basquetbol', this)">🏀 Basquetbol</button>
+  <button onclick="filtrarCategoria('beisbol', this)">⚾ Beisbol</button>
+  <button onclick="filtrarCategoria('futbol', this)">⚽ Futbol</button>
+  <button onclick="filtrarCategoria('gorras', this)">🧢 Gorras</button>
+<button onclick="filtrarCategoria('polerones', this)">🧥 Polerones</button>
+</nav>
+
+<!-- SLIDER -->
+<section id="inicio" class="slider">
+  <img src="imagenes/banner1.jpg" class="slide activo" alt="Ofertas deportivas">
+  <img src="imagenes/banner2.jpg" class="slide" alt="Nueva colección">
+  <img src="imagenes/banner3.jpg" class="slide" alt="Descuentos fútbol">
+</section>
+
+<!-- PRODUCTOS -->
+<section class="productos" id="contenedor-productos"></section>
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="toggleCarrito()"></div>
+
+<!-- CARRITO -->
+<div id="carrito-panel">
+
+  <div class="header-carrito">
+    <h3 class="titulo-carrito">Carrito</h3>
+
+    <button 
+      onclick="toggleCarrito()" 
+      class="cerrar-carrito"
+      aria-label="Cerrar carrito"
+    >
+      ✖ Cerrar
+    </button>
+  </div>
+
+  <ul id="lista"></ul>
+  <p id="total"></p>
+
+  <div id="resumen"></div>
+
+  <div class="campo">
+    <label for="direccion">📍 Dirección</label>
+    <input id="direccion" placeholder="Ej: Calle 123">
+  </div>
+
+  <div class="campo">
+    <label for="pago">💰 Método de pago</label>
+    <select id="pago">
+      <option>Transferencia</option>
+      <option>Efectivo</option>
+    </select>
+  </div>
+
+  <div class="campo">
+    <label for="entrega">🚚 Tipo de entrega</label>
+    <select id="entrega">
+      <option>Delivery Gratis</option>
+      <option>Retiro en tienda</option>
+    </select>
+  </div>
+
+  <div class="footer-carrito">
+    <button class="btn-finalizar" onclick="enviarPedido()">
+      Finalizar pedido
+    </button>
+  </div>
+
+</div>
+
+<!-- BOTÓN FLOTANTE -->
+<a id="btn-instagram"
+href="https://www.instagram.com/urbnzone.oficial?igsh=YTMyMnNpeHoweGU1&utm_source=qr"
+   target="_blank"
+   rel="noopener noreferrer"
+   title="Ir a Instagram de URBNZONE">
+   
+  <img src="imagenes/instagram.png" alt="Instagram">
+  <span class="sr-only">Instagram URBNZONE</span>
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
