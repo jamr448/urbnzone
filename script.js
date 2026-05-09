@@ -538,6 +538,22 @@ function enviarPedido() {
             "&text=" + encodeURIComponent(mensaje);
 
   window.open(url, "_blank");
+  const pedido = {
+  productos: carrito,
+  total: total,
+  direccion: direccion,
+  pago: pago,
+  entrega: entrega,
+  fecha: new Date().toISOString()
+};
+
+addDoc(collection(db, "pedidos"), pedido)
+  .then(() => {
+    console.log("🔥 Pedido guardado en Firebase");
+  })
+  .catch((error) => {
+    console.error("❌ Error Firebase:", error);
+  });
 
 // ✅ GUARDAR PEDIDO FINALIZADO
 let pedidos = JSON.parse(localStorage.getItem("pedidosFinalizados")) || [];
