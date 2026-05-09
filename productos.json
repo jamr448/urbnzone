@@ -20,8 +20,7 @@
   "precioAnterior": 20000,
   "oferta": false,
   "imagenes": [
-    "imagenes/polerondenisrodman91.png",
-    "imagenes/bulls2.jpg"
+    "imagenes/polerondenisrodman91.png"
   ],
   "categoria": "polerones",
   "descripcion": "Polerón urbano negro inspirado en Dennis Rodman y la histórica era de los Chicago Bulls. Diseño trasero con gráfico artístico del número 91 y estilo vintage NBA, ideal para quienes buscan un outfit auténtico y con personalidad.",
@@ -34,7 +33,7 @@
   "nombre": "Polerón GOAT Jordan Edition – Streetwear Collection ",
   "precio": 35000,
   "imagenes": [
-    "imagenes/poleronjordan23.png",
+    "imagenes/poleronjordan23frente.png",
     "imagenes/poleronjordangoat.png"
   ],
   "categoria": "polerones",
@@ -46,7 +45,7 @@
   "nombre": "Polerón G.O.A.T Jordan 23 – Urban Basketball Edition",
   "precio": 35000,
   "imagenes": [
-    "imagenes/poleronjordan23.png",
+    "imagenes/poleronjordan23frente.png",
     "imagenes/poleronjordangoat312.png"
   ],
   "categoria": "polerones",
