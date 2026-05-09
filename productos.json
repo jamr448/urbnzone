@@ -2,27 +2,31 @@
   {
     "id": 1,
     "nombre": "Camiseta NBA Chicago Bulls 23 Michael Jordan",
-    "precio": 20000,
+    "precio": 35000,
     "precioAnterior": 25000,
-    "oferta": true,
+    "oferta": false,
     "imagenes": [
-  "imagenes/basquet1.jpg",
+  "imagenes/poleronjordan23.png",
   "imagenes/bulls2.jpg",
   "imagenes/bulls3.jpg"
 ],
-    "categoria": "basquetbol",
-    "descripcion": "Camiseta deportiva de alta calidad NBA Chicago Bulls 23 Michael Jordan",
+    "categoria": "polerones",
+    "descripcion": "Polerón Chicago 23 Jordan Does It Again tall ",
     "stock": 10,
-    "rating": 5
+    "rating": 4
   },
   {
   "id": 2,
-  "nombre": "Camiseta NBA Celtics de Boston 7 Brown",
-  "precio": 15000,
+  "nombre": "Polerón Chicago Bulls 91 Dennis Rodman",
+  "precio": 35000,
   "precioAnterior": 20000,
-  "oferta": true,
-  "imagen": "imagenes/basquet2.jpg",
-  "categoria": "basquetbol",
+  "oferta": false,
+  "imagenes": [
+    "imagenes/polerondenisrodman91.png",
+    "imagenes/bulls2.jpg",
+    "imagenes/bulls3.jpg"
+  ],
+  "categoria": "polerones",
   "descripcion": "...",
   "stock": 10,
   "rating": 5
@@ -30,19 +34,26 @@
 
 {
   "id": 3,
-  "nombre": "Polerón Chicago Bulls",
-  "precio": 25000,
-  "imagen": "imagenes/poleron1.jpg",
+  "nombre": "Polerón GOAT Jordan Edition – Streetwear Collection ",
+  "precio": 35000,
+  "imagenes": [
+    "imagenes/poleronjordan23.png",
+    "imagenes/poleronjordangoat.png",
+    "imagenes/bulls3.jpg"
+  ],
   "categoria": "polerones",
   "stock": 8,
   "rating": 5
 },
 {
   "id": 4,
-  "nombre": "Gorra New Era NBA Chicago Bulls",
-  "precio": 12000,
-  "imagen": "imagenes/gorra1.jpg",
-  "categoria": "gorras",
+  "nombre": "Polerón G.O.A.T Jordan 23 – Urban Basketball Edition",
+  "precio": 35000,
+  "imagenes": [
+    "imagenes/poleronjordan23.png",
+    "imagenes/poleronjordangoat312.png"
+  ],
+  "categoria": "polerones",
   "stock": 15,
   "rating": 4
 }
