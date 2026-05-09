@@ -37,6 +37,7 @@
     "imagenes/poleronjordangoat.png"
   ],
   "categoria": "polerones",
+  "descripcion": "Polerón urbano negro con diseño inspirado en Michael Jordan y la era clásica de los Chicago Bulls. Estampado trasero con composición gráfica del número 23 y estilo vintage NBA, ideal para quienes buscan un look auténtico y moderno.",
   "stock": 1,
   "rating": 5
 },
@@ -49,6 +50,7 @@
     "imagenes/poleronjordangoat312.png"
   ],
   "categoria": "polerones",
+  "descripcion": "Polerón streetwear negro inspirado en la leyenda Michael Jordan y su histórica etapa en los Chicago Bulls. Diseño trasero con collage gráfico del número 23 en diferentes poses icónicas, acompañado del sello “G.O.A.T”",
   "stock": 15,
   "rating": 4
 }
