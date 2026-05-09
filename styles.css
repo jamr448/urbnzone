@@ -772,18 +772,22 @@ textarea{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:15px;
+    padding:15px 10px;
     gap:15px;
+    position:relative;
   }
 
   .logo-banner{
-    width:100%;
     display:flex;
     justify-content:center;
+    align-items:center;
+    width:100%;
   }
 
   .logo-banner img{
-    width:180px;
+    width:170px;
+    height:auto;
+    display:block;
   }
 
   .contenedor-busqueda{
@@ -794,19 +798,26 @@ textarea{
   }
 
   .buscador{
-    width:85%;
+    width:90%;
+    max-width:90%;
+    font-size:18px;
   }
 
   .acciones-header{
+    width:100%;
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:15px;
-    width:100%;
+    gap:20px;
+    margin-top:5px;
+  }
+
+  .icono-header{
+    font-size:22px;
   }
 
   #total-header{
-    font-size:18px;
+    font-size:20px;
   }
 
 }
