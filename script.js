@@ -419,7 +419,7 @@ function buscarProducto() {
   filtrados.slice(0, 5).forEach(p => {
     box.innerHTML += `
       <div class="item-busqueda" onclick="verProducto(${p.id})">
-        <img src="${p.imagen}">
+        <img src="${(p.imagenes || [p.imagen])[0]}">
         <div>
           <p>${p.nombre}</p>
           <strong>$${p.precio.toLocaleString("es-CL")}</strong>
