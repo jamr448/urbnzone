@@ -768,33 +768,36 @@ textarea{
 @media(max-width:768px){
 
   .topbar{
+    height:auto;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:15px 10px;
+    padding:20px 10px;
     gap:15px;
-    position:relative;
   }
 
   .logo-banner{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    transform:none !important;
+
+    width:100%;
     display:flex;
     justify-content:center;
-    align-items:center;
-    width:100%;
+    padding:0;
   }
 
   .logo-banner img{
-    width:170px;
+    width:180px;
     height:auto;
-    display:block;
   }
 
   .contenedor-busqueda{
     width:100%;
     display:flex;
     justify-content:center;
-    margin:0;
   }
 
   .buscador{
@@ -809,7 +812,6 @@ textarea{
     justify-content:center;
     align-items:center;
     gap:20px;
-    margin-top:5px;
   }
 
   .icono-header{
@@ -818,55 +820,6 @@ textarea{
 
   #total-header{
     font-size:20px;
-  }
-
-  @media(max-width:768px){
-
-  .topbar{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:15px;
-    gap:15px;
-  }
-
-  .logo-banner{
-    position:relative !important;
-    left:auto !important;
-    top:auto !important;
-    transform:none !important;
-
-    width:100%;
-    display:flex;
-    justify-content:center;
-  }
-
-  .logo-banner img{
-    width:180px;
-  }
-
-  .contenedor-busqueda{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    margin:0;
-  }
-
-  .buscador{
-    width:85%;
-  }
-
-  .acciones-header{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:15px;
-    width:100%;
-  }
-
-  #total-header{
-    font-size:18px;
   }
 
 }
