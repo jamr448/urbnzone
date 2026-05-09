@@ -67,9 +67,10 @@ body {
 
 /* ===== HEADER ICONOS ===== */
 .acciones-header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:nowrap;
 }
 
 .icono-header {
@@ -103,6 +104,8 @@ body {
 }
 
 #total-header {
+  font-size:18px;
+  white-space:nowrap;
   margin-left: 10px;
   font-weight: bold;
 }
@@ -760,4 +763,25 @@ textarea{
   border:none;
   margin-bottom:15px;
   resize:vertical;
+}
+
+@media(max-width:768px){
+
+  .topbar{
+    padding:10px;
+    gap:10px;
+  }
+
+  .acciones-header{
+    gap:5px;
+  }
+
+  #total-header{
+    font-size:16px;
+  }
+
+  .logo-banner img{
+    width:120px;
+  }
+
 }
