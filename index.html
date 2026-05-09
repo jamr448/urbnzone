@@ -127,6 +127,37 @@ href="https://www.instagram.com/urbnzone.oficial?igsh=YTMyMnNpeHoweGU1&utm_sourc
   <span class="sr-only">Instagram URBNZONE</span>
 </a>
 
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDVINBZF8qNoYMJV9JKIlSqpIj-UYJI5SM",
+  authDomain: "urbnzone-d75a3.firebaseapp.com",
+  projectId: "urbnzone-d75a3",
+  storageBucket: "urbnzone-d75a3.firebasestorage.app",
+  messagingSenderId: "815937695619",
+  appId: "1:815937695619:web:57e2ad0132f5e46479d0b6"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+window.db = db;
+window.collection = collection;
+window.getDocs = getDocs;
+window.addDoc = addDoc;
+
+</script>
+
 <script src="script.js"></script>
 
 </body>
