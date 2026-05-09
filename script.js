@@ -80,7 +80,7 @@ function renderProductos() {
   ❤️
 </div>
 
-    <img src="${p.imagen}" class="img-producto">
+    <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
     <h3>${p.nombre}</h3>
     <p>$${p.precio.toLocaleString("es-CL")}</p>
 
@@ -88,7 +88,7 @@ function renderProductos() {
       Ver producto
     </button>
 
-    <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${p.imagen}')">
+    <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${(p.imagenes || [p.imagen])[0]}')">
       Agregar al Carrito
     </button>
   </div>
@@ -152,7 +152,7 @@ function filtrarCategoria(categoria, btn) {
 
     ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
-    <img src="${p.imagen}" class="img-producto">
+    <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
     <h3>${p.nombre}</h3>
 
     ${precioHTML}
@@ -161,7 +161,7 @@ function filtrarCategoria(categoria, btn) {
       Ver producto
     </button>
 
-    <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${p.imagen}')">
+    <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${(p.imagenes || [p.imagen])[0]}')">
       Agregar al Carrito
     </button>
 
@@ -229,7 +229,7 @@ if (filtrados.length === 0) {
 
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
-        <img src="${p.imagen}" class="img-producto">
+        <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
         <h3>${p.nombre}</h3>
 
         ${precioHTML}
@@ -238,7 +238,7 @@ if (filtrados.length === 0) {
           Ver producto
         </button>
 
-        <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${p.imagen}')">
+        <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${(p.imagenes || [p.imagen])[0]}')">
           Agregar al Carrito
         </button>
 
@@ -306,7 +306,7 @@ function actualizarCarrito() {
 
     lista.innerHTML += `
       <li>
-        <img src="${p.imagen}" class="mini-img">
+        <img src="${(p.imagenes || [p.imagen])[0]}" class="mini-img">
         <div>
           <p>${p.nombre}</p>
 
@@ -462,7 +462,7 @@ function buscarProducto() {
 
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
-        <img src="${p.imagen}" class="img-producto">
+        <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
         <h3>${p.nombre}</h3>
 
         ${precioHTML}
@@ -471,7 +471,7 @@ function buscarProducto() {
           Ver producto
         </button>
 
-        <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${p.imagen}')">
+        <button onclick="agregarCarrito(${p.id},'${p.nombre}',${p.precio},'${(p.imagenes || [p.imagen])[0]}')">
           Agregar al Carrito
         </button>
 
