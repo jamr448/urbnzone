@@ -62,6 +62,10 @@ button {
 <div class="detalle" id="detalle"></div>
 
 <script>
+
+let imagenActual = 0;
+let imagenesProducto = [];
+
 let productoActual = null;
 let cantidad = 1;
 let stockData = JSON.parse(localStorage.getItem("stock")) || {};
@@ -95,12 +99,28 @@ fetch("productos.json")
 // 🧠 render producto
 function mostrarProducto() {
     const stock = stockData[productoActual.id] ?? productoActual.stock ?? 0;
+
+    imagenesProducto =
+  productoActual.imagenes || [productoActual.imagen];
     
     document.getElementById("detalle").innerHTML = `
   
-  <div>
-    <img src="${productoActual.imagen}">
-  </div>
+  <div class="galeria-producto">
+
+  <button class="flecha izquierda" onclick="cambiarImagen(-1)">
+    ❮
+  </button>
+
+  <img 
+    id="img-producto"
+    src="${(productoActual.imagenes || [productoActual.imagen])[0]}"
+  >
+
+  <button class="flecha derecha" onclick="cambiarImagen(1)">
+    ❯
+  </button>
+
+</div>
 
   <div>
     <span class="volver" onclick="volver()">⬅ Volver</span>
@@ -155,6 +175,22 @@ function mostrarProducto() {
 
   </div>
 `;
+}
+
+function cambiarImagen(direccion) {
+
+  imagenActual += direccion;
+
+  if (imagenActual < 0) {
+    imagenActual = imagenesProducto.length - 1;
+  }
+
+  if (imagenActual >= imagenesProducto.length) {
+    imagenActual = 0;
+  }
+
+  document.getElementById("img-producto").src =
+    imagenesProducto[imagenActual];
 }
 
 // 🔙 volver

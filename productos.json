@@ -5,7 +5,11 @@
     "precio": 20000,
     "precioAnterior": 25000,
     "oferta": true,
-    "imagen": "imagenes/basquet1.jpg",
+    "imagenes": [
+  "imagenes/basquet1.jpg",
+  "imagenes/bulls2.jpg",
+  "imagenes/bulls3.jpg"
+],
     "categoria": "basquetbol",
     "descripcion": "Camiseta deportiva de alta calidad NBA Chicago Bulls 23 Michael Jordan",
     "stock": 10,

@@ -717,3 +717,37 @@ button {
   font-weight:bold;
   color:#00ff2a;
 }
+
+.galeria-producto{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.flecha{
+  position:absolute;
+  background:#00ff3c;
+  color:#000;
+  border:none;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:22px;
+  font-weight:bold;
+  z-index:10;
+}
+
+.izquierda{
+  left:10px;
+}
+
+.derecha{
+  right:10px;
+}
+
+#img-producto{
+  width:100%;
+  border-radius:12px;
+}
