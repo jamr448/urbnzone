@@ -751,3 +751,13 @@ button {
   width:100%;
   border-radius:12px;
 }
+
+textarea{
+  width:100%;
+  min-height:120px;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  margin-bottom:15px;
+  resize:vertical;
+}

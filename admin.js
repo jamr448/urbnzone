@@ -110,6 +110,10 @@ function mostrarFormularioNuevo() {
       <input id="nuevo-nombre" placeholder="Nombre">
       <input id="nuevo-precio" type="number" placeholder="Precio">
       <input id="nuevo-stock" type="number" placeholder="Stock">
+      <textarea 
+  id="nuevo-descripcion"
+  placeholder="Descripción del producto"
+></textarea>
       <select id="nuevo-categoria">
   <option value="basquetbol">🏀 Basquetbol</option>
   <option value="beisbol">⚾ Beisbol</option>
@@ -141,6 +145,8 @@ async function crearProducto() {
   const nombre = document.getElementById("nuevo-nombre").value;
   const precio = Number(document.getElementById("nuevo-precio").value);
   const stock = Number(document.getElementById("nuevo-stock").value);
+  const descripcion =
+  document.getElementById("nuevo-descripcion").value;
   const categoria = document.getElementById("nuevo-categoria").value;
 
   const file = document.getElementById("nuevo-imagen").files[0];
@@ -148,13 +154,14 @@ async function crearProducto() {
   let imagen = file ? await convertirBase64(file) : "";
 
   extras.push({
-    id: Date.now(),
-    nombre,
-    precio,
-    stock,
-    categoria,
-    imagen
-  });
+  id: Date.now(),
+  nombre,
+  precio,
+  stock,
+  descripcion,
+  categoria,
+  imagen
+});
 
   localStorage.setItem("productosExtra", JSON.stringify(extras));
 
