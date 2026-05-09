@@ -1,34 +1,31 @@
 [
   {
     "id": 1,
-    "nombre": "Camiseta NBA Chicago Bulls 23 Michael Jordan",
+    "nombre": "Polerón Chicago 23 Jordan Does It Again talla XL",
     "precio": 35000,
     "precioAnterior": 25000,
     "oferta": false,
     "imagenes": [
-  "imagenes/poleronjordan23.png",
-  "imagenes/bulls2.jpg",
-  "imagenes/bulls3.jpg"
+  "imagenes/poleronjordan23.png"
 ],
     "categoria": "polerones",
-    "descripcion": "Polerón Chicago 23 Jordan Does It Again tall ",
-    "stock": 10,
+    "descripcion": "Polerón streetwear negro inspirado en la leyenda Michael Jordan y su histórica etapa en los Chicago Bulls. Diseño trasero con collage gráfico del número 23 en diferentes poses icónicas, acompañado del sello “G.O.A.T” (Greatest Of All Time). ",
+    "stock": 1,
     "rating": 4
   },
   {
   "id": 2,
-  "nombre": "Polerón Chicago Bulls 91 Dennis Rodman",
+  "nombre": "Polerón Chicago Bulls 91 Dennis Rodman talla M y XL",
   "precio": 35000,
   "precioAnterior": 20000,
   "oferta": false,
   "imagenes": [
     "imagenes/polerondenisrodman91.png",
-    "imagenes/bulls2.jpg",
-    "imagenes/bulls3.jpg"
+    "imagenes/bulls2.jpg"
   ],
   "categoria": "polerones",
-  "descripcion": "...",
-  "stock": 10,
+  "descripcion": "Polerón urbano negro inspirado en Dennis Rodman y la histórica era de los Chicago Bulls. Diseño trasero con gráfico artístico del número 91 y estilo vintage NBA, ideal para quienes buscan un outfit auténtico y con personalidad.",
+  "stock": 2,
   "rating": 5
 },
 
@@ -38,11 +35,10 @@
   "precio": 35000,
   "imagenes": [
     "imagenes/poleronjordan23.png",
-    "imagenes/poleronjordangoat.png",
-    "imagenes/bulls3.jpg"
+    "imagenes/poleronjordangoat.png"
   ],
   "categoria": "polerones",
-  "stock": 8,
+  "stock": 1,
   "rating": 5
 },
 {
