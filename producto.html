@@ -121,9 +121,9 @@ function mostrarProducto() {
   </button>
 
   <img 
-    id="img-producto"
-    src="${(productoActual.imagenes || [productoActual.imagen])[0]}"
-  >
+  id="img-producto"
+  src="${(productoActual.imagenes || [productoActual.imagen])[0] || 'imagenes/no-image.png'}"
+>
 
   <button class="flecha derecha" onclick="cambiarImagen(1)">
     ❯
@@ -199,7 +199,7 @@ function cambiarImagen(direccion) {
   }
 
   document.getElementById("img-producto").src =
-    imagenesProducto[imagenActual];
+    imagenesProducto[imagenActual] || "imagenes/no-image.png";
 }
 
 // 🔙 volver
