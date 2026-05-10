@@ -53,6 +53,15 @@ function renderAdmin(productos) {
         <label>Stock</label>
         <input type="number" id="stock-${p.id}" value="${stockActual}">
 
+ <label>Tallas</label>
+
+<input
+  type="text"
+  id="tallas-${p.id}"
+  value="${(p.tallas || []).join(",")}"
+  placeholder="S,M,L,XL"
+>
+
 <button class="btn-guardar" onclick="guardar(${p.id})">
  💾 Guardar
 </button>
@@ -77,6 +86,10 @@ function guardar(id) {
   const nombre = document.getElementById(`nombre-${id}`).value;
   const precio = Number(document.getElementById(`precio-${id}`).value);
   const stock = Number(document.getElementById(`stock-${id}`).value);
+  const tallas =
+  document.getElementById(`tallas-${id}`)
+    .value
+    .split(",");
 
   let prod = cambios.find(p => p.id === id);
 
@@ -87,6 +100,7 @@ function guardar(id) {
 
   prod.nombre = nombre;
   prod.precio = precio;
+  prod.tallas = tallas;
 
   localStorage.setItem("adminProductos", JSON.stringify(cambios));
 
