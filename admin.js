@@ -40,7 +40,7 @@ function renderAdmin(productos) {
     contenedor.innerHTML += `
       <div class="admin-card">
 
-        <img src="${(p.imagenes || [p.imagen])[0]}">
+        <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}">
 
         <h3>${p.nombre}</h3>
 
