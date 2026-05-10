@@ -151,7 +151,12 @@ async function crearProducto() {
 
   const file = document.getElementById("nuevo-imagen").files[0];
 
-  let imagen = file ? await convertirBase64(file) : "";
+if (!file) {
+  alert("Debes subir una imagen");
+  return;
+}
+
+let imagen = await convertirBase64(file);
 
   extras.push({
   id: Date.now(),
