@@ -1,8 +1,9 @@
 [
   {
     "id": 1,
-    "nombre": "Polerón Chicago 23 Jordan Does It Again talla XL",
+    "nombre": "Polerón Chicago 23 Jordan Does It Again",
     "precio": 35000,
+    "tallas": ["XL"],
     "precioAnterior": 25000,
     "oferta": false,
     "imagenes": [
@@ -15,15 +16,15 @@
   },
   {
   "id": 2,
-  "nombre": "Polerón Chicago Bulls 91 Dennis Rodman talla M y XL",
+  "nombre": "Polerón Chicago Bulls 91 Dennis Rodman",
   "precio": 35000,
+  "tallas": ["M","XL"],
   "precioAnterior": 20000,
   "oferta": false,
   "imagenes": [
     "imagenes/polerondenisrodman91.png"
   ],
   "categoria": "polerones",
-  "tallas": ["M","XL"],
   "descripcion": "Polerón urbano negro inspirado en Dennis Rodman y la histórica era de los Chicago Bulls. Diseño trasero con gráfico artístico del número 91 y estilo vintage NBA, ideal para quienes buscan un outfit auténtico y con personalidad.",
   "stock": 2,
   "rating": 5
@@ -33,6 +34,7 @@
   "id": 3,
   "nombre": "Polerón GOAT Jordan Edition – Streetwear Collection ",
   "precio": 35000,
+  "tallas": ["XL"],
   "imagenes": [
     "imagenes/poleronjordan23frente.png",
     "imagenes/poleronjordangoat.png"
@@ -46,6 +48,7 @@
   "id": 4,
   "nombre": "Polerón G.O.A.T Jordan 23 – Urban Basketball Edition",
   "precio": 35000,
+  "tallas": ["XL"],
   "imagenes": [
     "imagenes/poleronjordan23frente.png",
     "imagenes/poleronjordangoat312.png"
