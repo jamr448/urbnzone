@@ -82,18 +82,27 @@ function generarEstrellas(rating) {
 // 🔥 cargar producto
 fetch("productos.json")
   .then(res => res.json())
-  .then(productos => {
+  .then(data => {
+
+    const extras =
+      JSON.parse(localStorage.getItem("productosExtra")) || [];
+
+    const productos = [...data, ...extras];
+
     const params = new URLSearchParams(window.location.search);
+
     const id = parseInt(params.get("id"));
 
-    productoActual = productos.find(p => p.id === id);
+    productoActual = productos.find(p => p.id == id);
 
     if (!productoActual) {
-      document.getElementById("detalle").innerHTML = "<h2>Producto no encontrado</h2>";
+      document.getElementById("detalle").innerHTML =
+        "<h2>Producto no encontrado</h2>";
       return;
     }
 
     mostrarProducto();
+
   });
 
 // 🧠 render producto
@@ -232,7 +241,7 @@ function agregarAlCarrito() {
     carrito.push({
       nombre: productoActual.nombre,
       precio: productoActual.precio,
-      imagen: productoActual.imagen,
+      imagen: (productoActual.imagenes || [productoActual.imagen])[0],
       cantidad: cantidad
     });
   }
