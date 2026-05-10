@@ -53,13 +53,17 @@ function renderAdmin(productos) {
         <label>Stock</label>
         <input type="number" id="stock-${p.id}" value="${stockActual}">
 
-        <button class="btn-guardar" onclick="guardar(${p.id})">
-        💾 Guardar
-        </button>
+<button class="btn-guardar" onclick="guardar(${p.id})">
+ 💾 Guardar
+</button>
 
-        <button class="btn-eliminar-admin" onclick="eliminarProducto(${p.id})">
-         🗑 Eliminar
-        </button>
+<button class="btn-modificar" onclick="editarProducto(${p.id})">
+ ✏️ Modificar
+</button>
+
+<button class="btn-eliminar-admin" onclick="eliminarProducto(${p.id})">
+ 🗑 Eliminar
+</button>
 
       </div>
     `;
@@ -91,6 +95,46 @@ function guardar(id) {
 
   alert("✅ Guardado");
 }
+async function editarProducto(id) {
+
+  let extras = JSON.parse(localStorage.getItem("productosExtra")) || [];
+
+  let producto = extras.find(p => p.id === id);
+
+  if (!producto) {
+    alert("Solo puedes modificar productos creados desde admin");
+    return;
+  }
+
+  const input = document.createElement("input");
+
+  input.type = "file";
+  input.accept = "image/*";
+
+  input.onchange = async (e) => {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    const imagen = await convertirBase64(file);
+
+    producto.imagen = imagen;
+    producto.imagenes = [imagen];
+
+    localStorage.setItem(
+      "productosExtra",
+      JSON.stringify(extras)
+    );
+
+    alert("✅ Imagen actualizada");
+
+    location.reload();
+  };
+
+  input.click();
+}
+
 function eliminarProducto(id) {
 
   let eliminados = JSON.parse(localStorage.getItem("productosEliminados")) || [];
