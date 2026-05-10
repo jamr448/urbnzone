@@ -80,7 +80,7 @@ function renderProductos() {
   ❤️
 </div>
 
-    <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
+    <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
     <h3>${p.nombre}</h3>
     <p>$${p.precio.toLocaleString("es-CL")}</p>
 
@@ -152,7 +152,7 @@ function filtrarCategoria(categoria, btn) {
 
     ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
-    <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
+    <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
     <h3>${p.nombre}</h3>
 
     ${precioHTML}
@@ -229,7 +229,7 @@ if (filtrados.length === 0) {
 
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
-        <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
+        <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
         <h3>${p.nombre}</h3>
 
         ${precioHTML}
@@ -419,7 +419,7 @@ function buscarProducto() {
   filtrados.slice(0, 5).forEach(p => {
     box.innerHTML += `
       <div class="item-busqueda" onclick="verProducto(${p.id})">
-        <img src="${(p.imagenes || [p.imagen])[0]}">
+        <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}">
         <div>
           <p>${p.nombre}</p>
           <strong>$${p.precio.toLocaleString("es-CL")}</strong>
@@ -462,7 +462,7 @@ function buscarProducto() {
 
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
-        <img src="${(p.imagenes || [p.imagen])[0]}" class="img-producto">
+        <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
         <h3>${p.nombre}</h3>
 
         ${precioHTML}
