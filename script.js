@@ -339,6 +339,8 @@ function actualizarCarrito() {
         <div>
           <p>${p.nombre}</p>
 
+          <p>📏 Talla: ${p.talla || "Única"}</p>
+
           <strong>$${p.precio} x ${p.cantidad}</strong>
           <p>Subtotal: $${subtotal.toLocaleString("es-CL")}</p>
 

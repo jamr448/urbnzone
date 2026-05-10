@@ -93,9 +93,43 @@ fetch("productos.json")
 
     const id = parseInt(params.get("id"));
 
-    productoActual = productos.find(p => p.id == id);
+productoActual = productos.find(p => p.id == id);
 
-    if (!productoActual) {
+setTimeout(() => {
+
+  const tallaSelect =
+    document.getElementById("talla-select");
+
+  if (!tallaSelect) return;
+
+  if (
+    productoActual.tallas &&
+    productoActual.tallas.length > 0
+  ) {
+
+    tallaSelect.innerHTML = "";
+
+    productoActual.tallas.forEach(talla => {
+
+      tallaSelect.innerHTML += `
+        <option value="${talla}">
+          ${talla}
+        </option>
+      `;
+    });
+
+  } else {
+
+    tallaSelect.innerHTML = `
+      <option value="Única">
+        Talla única
+      </option>
+    `;
+  }
+
+}, 100);
+
+if (!productoActual) {
       document.getElementById("detalle").innerHTML =
         "<h2>Producto no encontrado</h2>";
       return;
@@ -149,6 +183,23 @@ function mostrarProducto() {
     </div>
 
     <div style="margin-top:10px; font-size:14px; color:#ccc;">
+      
+  <div class="selector-talla">
+
+  <label style="display:block; margin:15px 0 8px;">
+    📏 Seleccionar talla
+  </label>
+
+  <select id="talla-select" style="
+    padding:10px;
+    border-radius:8px;
+    border:none;
+    width:200px;
+    margin-bottom:10px;
+  ">
+  </select>
+
+</div>
       <p>📦 Stock: <strong>${stock}</strong></p>
       <p>🏷️ Categoría: <strong>${productoActual.categoria || "General"}</strong></p>
     </div>
@@ -219,6 +270,9 @@ function agregarStock(cantidadExtra) {
   location.reload();
 }
 function agregarAlCarrito() {
+
+  const talla =
+  document.getElementById("talla-select").value;
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   let stockActual = stockData[productoActual.id] ?? productoActual.stock;
@@ -239,11 +293,12 @@ function agregarAlCarrito() {
     existente.cantidad += cantidad;
   } else {
     carrito.push({
-      nombre: productoActual.nombre,
-      precio: productoActual.precio,
-      imagen: (productoActual.imagenes || [productoActual.imagen])[0],
-      cantidad: cantidad
-    });
+  nombre: productoActual.nombre,
+  precio: productoActual.precio,
+  imagen: (productoActual.imagenes || [productoActual.imagen])[0],
+  cantidad: cantidad,
+  talla: talla
+});
   }
 
   localStorage.setItem("carrito", JSON.stringify(carrito));

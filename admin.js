@@ -158,6 +158,12 @@ function mostrarFormularioNuevo() {
   id="nuevo-descripcion"
   placeholder="Descripción del producto"
 ></textarea>
+
+<input 
+  id="nuevo-tallas"
+  placeholder="Tallas ejemplo: S,M,L,XL"
+/>
+
       <select id="nuevo-categoria">
   <option value="basquetbol">🏀 Basquetbol</option>
   <option value="beisbol">⚾ Beisbol</option>
@@ -192,6 +198,10 @@ async function crearProducto() {
   const descripcion =
   document.getElementById("nuevo-descripcion").value;
   const categoria = document.getElementById("nuevo-categoria").value;
+  const tallas =
+  document.getElementById("nuevo-tallas")
+    .value
+    .split(",");
 
   const file = document.getElementById("nuevo-imagen").files[0];
 
@@ -209,7 +219,9 @@ let imagen = await convertirBase64(file);
   stock,
   descripcion,
   categoria,
-  imagen
+  tallas,
+  imagen,
+  imagenes: [imagen]
 });
 
   localStorage.setItem("productosExtra", JSON.stringify(extras));
