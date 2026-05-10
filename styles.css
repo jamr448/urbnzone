@@ -823,3 +823,16 @@ textarea{
   }
 
 }
+
+.stock-producto{
+  color:#777;
+  font-size:14px;
+  margin-top:-5px;
+}
+
+.ultimo-stock{
+  color:#ff9800;
+  font-size:13px;
+  font-weight:bold;
+  margin-top:-8px;
+}

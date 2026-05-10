@@ -82,7 +82,20 @@ function renderProductos() {
 
     <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
     <h3>${p.nombre}</h3>
-    <p>$${p.precio.toLocaleString("es-CL")}</p>
+
+<p class="precio-producto">
+  $${p.precio.toLocaleString("es-CL")}
+</p>
+
+<p class="stock-producto">
+  📦 Stock: ${stockData[p.id] ?? p.stock ?? 0}
+</p>
+
+${
+  (stockData[p.id] ?? p.stock ?? 0) <= 3
+    ? '<p class="ultimo-stock">⚠️ Últimas unidades</p>'
+    : ''
+}
 
     <button onclick="verProducto(${p.id})">
       Ver producto
@@ -153,9 +166,17 @@ function filtrarCategoria(categoria, btn) {
     ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
     <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
-    <h3>${p.nombre}</h3>
-
     ${precioHTML}
+
+<p class="stock-producto">
+  📦 Stock: ${stockData[p.id] ?? p.stock ?? 0}
+</p>
+
+${
+  (stockData[p.id] ?? p.stock ?? 0) <= 3
+    ? '<p class="ultimo-stock">⚠️ Últimas unidades</p>'
+    : ''
+}
 
     <button onclick="verProducto(${p.id})">
       Ver producto
@@ -230,9 +251,17 @@ if (filtrados.length === 0) {
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
         <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
-        <h3>${p.nombre}</h3>
-
         ${precioHTML}
+
+<p class="stock-producto">
+  📦 Stock: ${stockData[p.id] ?? p.stock ?? 0}
+</p>
+
+${
+  (stockData[p.id] ?? p.stock ?? 0) <= 3
+    ? '<p class="ultimo-stock">⚠️ Últimas unidades</p>'
+    : ''
+}
 
         <button onclick="verProducto(${p.id})">
           Ver producto
@@ -463,9 +492,17 @@ function buscarProducto() {
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
         <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
-        <h3>${p.nombre}</h3>
-
         ${precioHTML}
+
+<p class="stock-producto">
+  📦 Stock: ${stockData[p.id] ?? p.stock ?? 0}
+</p>
+
+${
+  (stockData[p.id] ?? p.stock ?? 0) <= 3
+    ? '<p class="ultimo-stock">⚠️ Últimas unidades</p>'
+    : ''
+}
 
         <button onclick="verProducto(${p.id})">
           Ver producto
