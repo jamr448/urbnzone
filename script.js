@@ -166,7 +166,10 @@ function filtrarCategoria(categoria, btn) {
     ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
     <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
-    ${precioHTML}
+
+<h3>${p.nombre}</h3>
+
+${precioHTML}
 
 <p class="stock-producto">
   📦 Stock: ${stockData[p.id] ?? p.stock ?? 0}
@@ -251,6 +254,8 @@ if (filtrados.length === 0) {
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
         <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
+        <h3>${p.nombre}</h3>
+
         ${precioHTML}
 
 <p class="stock-producto">
@@ -494,6 +499,9 @@ function buscarProducto() {
         ${p.oferta ? '<span class="badge-oferta">🔥 OFERTA</span>' : ''}
 
         <img src="${(p.imagenes || [p.imagen])[0] || 'imagenes/no-image.png'}" class="img-producto">
+
+        <h3>${p.nombre}</h3>
+
         ${precioHTML}
 
 <p class="stock-producto">
