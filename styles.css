@@ -111,12 +111,19 @@ body {
 }
 
 /* ===== CATEGORIAS ===== */
-.categorias {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-  background: black;
-  overflow-x: auto;
+.categorias{
+  display:flex;
+  gap:10px;
+  padding:10px;
+  background:black;
+
+  overflow-x:auto;
+  overflow-y:hidden;
+
+  white-space:nowrap;
+
+  position:relative;
+  z-index:5;
 }
 
 .categorias button {
@@ -882,4 +889,35 @@ select{
 
 .btn-agregar{
   width:100%;
+}
+
+@media(max-width:768px){
+
+  .productos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    padding:12px;
+  }
+
+  .producto{
+    width:100%;
+    padding:10px;
+  }
+
+  .img-producto{
+    height:140px;
+  }
+
+  .producto h3{
+    font-size:14px;
+    line-height:1.2;
+    min-height:40px;
+  }
+
+  .producto button{
+    font-size:13px;
+    padding:10px;
+  }
+
 }
