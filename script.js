@@ -23,8 +23,9 @@ productos = [...data, ...extras]
     let mod = cambios.find(c => c.id === p.id);
     return mod ? { ...p, ...mod } : p;
   });
-    renderProductos();
     actualizarCarrito();
+
+document.getElementById("contenedor-productos").style.display = "none";
   })
   .catch(error => {
     console.error("Error cargando productos:", error);
