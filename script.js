@@ -109,14 +109,25 @@ ${
 });
 }
 function mostrarInicio(btn) {
+
   document.getElementById("inicio").style.display = "block";
-  document.getElementById("contenedor-productos").style.display = "none";
 
-  document.querySelectorAll(".categorias button").forEach(b => {
-    b.classList.remove("activo");
-  });
+  const contenedor =
+    document.getElementById("contenedor-productos");
 
-  btn.classList.add("activo");
+  contenedor.style.display = "grid";
+
+  renderProductos();
+
+  document
+    .querySelectorAll(".categorias button")
+    .forEach(b => {
+      b.classList.remove("activo");
+    });
+
+  if (btn) {
+    btn.classList.add("activo");
+  }
 }
 
 function filtrarCategoria(categoria, btn) {
@@ -643,7 +654,7 @@ document.addEventListener("DOMContentLoaded", () => {
   actualizarCarrito();
 
   const contenedor = document.getElementById("contenedor-productos");
-  if (contenedor) contenedor.style.display = "none";
+  
 });
 
 document.addEventListener("DOMContentLoaded", () => {
