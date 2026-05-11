@@ -115,9 +115,7 @@ function mostrarInicio(btn) {
   const contenedor =
     document.getElementById("contenedor-productos");
 
-  contenedor.style.display = "grid";
-
-  renderProductos();
+  contenedor.style.display = "none";
 
   document
     .querySelectorAll(".categorias button")

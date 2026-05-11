@@ -142,7 +142,7 @@ body {
 
 /* ===== SLIDER ===== */
 #inicio {
-  height: 60vh;
+  height: auto;
   overflow: hidden;
 }
 
@@ -773,6 +773,15 @@ textarea{
 }
 
 @media(max-width:768px){
+
+  .slider{
+    max-height:320px;
+  }
+
+  .slide{
+    max-height:320px;
+    object-fit:contain;
+  }
 
   .topbar{
   height:auto;
